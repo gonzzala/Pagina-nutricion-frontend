@@ -32,13 +32,21 @@ const StyledImage = styled("img")(({ theme }) => ({
 }));
 
 const Cart = () => {
-  const { cart, addToCart, lessToCart, clearCart, open, toggleDrawer } =
-    useCart();
+  const {
+    cart,
+    addToCart,
+    lessToCart,
+    clearCart,
+    open,
+    toggleDrawer,
+    save,
+    totalAmount,
+  } = useCart();
   const theme = useTheme();
-  const totalAmount = cart.reduce(
+  /* const totalAmount = cart.reduce(
     (acc, product) => acc + product.quantity * product.price,
     0
-  );
+  ); */
 
   function CartItem({ name, price, images, quantity, addToCart, lessToCart }) {
     const imageUrl = images.length > 0 ? images[0].image_url : "";
@@ -199,8 +207,9 @@ const Cart = () => {
               sx={{
                 width: "100%",
               }}
+              onClick={save}
             >
-              Pagar | $ {totalAmount}
+              Iniciar compra | $ {totalAmount}
             </Button>
           </Stack>
         </>
