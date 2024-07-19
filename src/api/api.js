@@ -9,23 +9,18 @@ const api = axios.create({
   },
 });
 
-// Interceptor de respuesta
 api.interceptors.response.use(
   (response) => {
-    // Si la respuesta es exitosa, simplemente retornar la respuesta
     return response;
   },
   (error) => {
-    // Si ocurre un error, manejarlo aquí
     if (error.code === "ECONNABORTED") {
-      // Manejar el timeout
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "¡La solicitud ha excedido el tiempo de espera!",
       });
     } else {
-      // Manejar otros errores
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -33,7 +28,6 @@ api.interceptors.response.use(
       });
     }
 
-    // Asegurarse de que la promesa rechazada sea manejada
     return Promise.reject(error);
   }
 );
@@ -54,6 +48,10 @@ export const saveCart = (cart, buyerUuid) => {
 
 export const saveOrder = (orderData) => {
   return api.post("/orders", { orderData });
+};
+
+export const sendMessage = (name, email, message) => {
+  return api.post("/messages", { name, email, message });
 };
 
 export default api;

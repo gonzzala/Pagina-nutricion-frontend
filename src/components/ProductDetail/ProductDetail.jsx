@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductDetail } from "../api/api";
 import {
   Box,
   Button,
@@ -11,11 +10,12 @@ import {
   Skeleton,
 } from "@mui/material";
 import { useTheme } from "@emotion/react";
-import { useCart } from "../hooks/useCart";
+import { useCart } from "../../hooks/useCart";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import ImageSlider from "./Carousel";
 import InfoIcon from "@mui/icons-material/Info";
+import useProductDetail from "../../hooks/useProductDetail";
 
 const imageStyles = {
   borderRadius: "10px",
@@ -33,10 +33,10 @@ const SliderBox = styled(Box)(({ theme }) => ({
 
 const ProductDetail = () => {
   const { product_id } = useParams();
-  const [product, setProduct] = useState(null);
   const theme = useTheme();
   const [quantity, setQuantity] = useState(1);
   const { addToCart, toggleDrawer } = useCart();
+  const product = useProductDetail(product_id);
 
   const handleAddToCart = (product) => {
     addToCart(product, quantity);
@@ -50,19 +50,6 @@ const ProductDetail = () => {
   const handleRemoveQuantity = () => {
     setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
   };
-
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const response = await getProductDetail(product_id);
-        setProduct(response.data);
-      } catch (error) {
-        console.error("Error fetching product:", error);
-      }
-    };
-
-    fetchProduct();
-  }, [product_id]);
 
   return (
     <>
@@ -112,7 +99,7 @@ const ProductDetail = () => {
                   alignItems="center"
                   spacing={0.5}
                   sx={{
-                    mb: 1,
+                    mb: theme.spacing(1),
                   }}
                 >
                   <InfoIcon />
@@ -134,7 +121,7 @@ const ProductDetail = () => {
                   variant="contained"
                   color="primary"
                   sx={{
-                    my: 4,
+                    my: theme.spacing(4),
                     width: "100%",
                     height: 45,
                   }}
@@ -154,7 +141,7 @@ const ProductDetail = () => {
                   variant="rectangular"
                   width="100%"
                   height={45}
-                  sx={{ my: 4 }}
+                  sx={{ my: theme.spacing(4) }}
                 />
                 <Skeleton variant="text" width="100%" height={100} />
               </>

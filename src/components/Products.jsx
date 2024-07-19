@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Typography,
   Grid,
@@ -7,11 +7,8 @@ import {
   CardContent,
   CardMedia,
   IconButton,
-  Box,
-  Stack,
   Skeleton,
 } from "@mui/material";
-import { useCart } from "../hooks/useCart";
 import { useProducts } from "../hooks/useProduct";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useNavigate } from "react-router-dom";
@@ -83,7 +80,7 @@ const Products = ({ category }) => {
               <Card
                 sx={{
                   maxWidth: 300,
-                  marginTop: 5,
+                  marginTop: theme.spacing(5),
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -144,7 +141,7 @@ const Products = ({ category }) => {
               <Card
                 sx={{
                   maxWidth: 300,
-                  marginTop: 5,
+                  marginTop: theme.spacing(5),
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",

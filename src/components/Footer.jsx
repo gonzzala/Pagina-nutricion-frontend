@@ -1,13 +1,11 @@
 import React from "react";
 import {
   Box,
-  Button,
   Container,
   Grid,
   Link,
   List,
   ListItem,
-  MenuItem,
   Typography,
 } from "@mui/material";
 import { NavLink, useLocation } from "react-router-dom";
@@ -44,7 +42,7 @@ const Footer = () => {
           width: "100%",
           height: "auto",
           backgroundColor: "surface.200",
-          paddingTop: "1rem",
+          paddingTop: theme.spacing(2),
         }}
       >
         <Container maxWidth="lg">
@@ -64,8 +62,8 @@ const Footer = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   padding: 0,
-                  gap: 1,
-                  mt: 1,
+                  gap: theme.spacing(1),
+                  mt: theme.spacing(1),
                 }}
               >
                 {pages.map((page) => (
@@ -107,7 +105,7 @@ const Footer = () => {
                 align="center"
                 sx={{
                   [theme.breakpoints.down("sm")]: {
-                    mt: 2,
+                    mt: theme.spacing(2),
                   },
                 }}
               >
@@ -120,7 +118,7 @@ const Footer = () => {
                   alignItems: "center",
                   padding: 0,
                   gap: 0,
-                  mt: 1,
+                  mt: theme.spacing(1),
                 }}
               >
                 <ListItem sx={{ justifyContent: "center", padding: 0 }}>
@@ -167,7 +165,7 @@ const Footer = () => {
                 align="center"
                 sx={{
                   [theme.breakpoints.down("md")]: {
-                    mt: 2,
+                    mt: theme.spacing(2),
                   },
                 }}
               >
@@ -179,8 +177,8 @@ const Footer = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   padding: 0,
-                  margin: 0,
-                  gap: 0.5,
+                  mt: theme.spacing(1),
+                  gap: theme.spacing(1),
                 }}
               >
                 <ListItem sx={{ justifyContent: "center", padding: 0 }}>
@@ -227,9 +225,9 @@ const Footer = () => {
             variant="body2"
             align="left"
             sx={{
-              mt: 2,
-              mb: 0.5,
-              ml: 0.5,
+              mt: theme.spacing(2),
+              mb: theme.spacing(0.5),
+              ml: theme.spacing(0.5),
               [theme.breakpoints.down("md")]: {
                 textAlign: "center",
                 mt: 4,

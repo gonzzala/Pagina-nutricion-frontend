@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Typography, useTheme, Paper, styled } from "@mui/material";
+import { Box, Grid, Typography, useTheme, styled } from "@mui/material";
 
 const StyledImage = styled("img")(({ theme }) => ({
   borderRadius: theme.spacing(2),
@@ -19,7 +19,7 @@ const About = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          mb: 2,
+          mb: theme.spacing(2),
           [theme.breakpoints.down("sm")]: {
             height: "60px",
           },
@@ -92,7 +92,7 @@ const About = () => {
         sx={{
           backgroundColor: theme.palette.primary[50],
           height: "100px",
-          mt: 2,
+          mt: theme.spacing(2),
           [theme.breakpoints.down("sm")]: {
             height: "60px",
           },

@@ -1,103 +1,24 @@
-import { useId } from "react";
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import CloseIcon from "@mui/icons-material/Close";
-import { useCart } from "../hooks/useCart";
-import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
-import {
-  Container,
-  Grid,
-  IconButton,
-  Stack,
-  styled,
-  Typography,
-} from "@mui/material";
-import { useTheme } from "@emotion/react";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { useEffect } from "react";
+import { Box, Button, List, Stack, Typography } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import CartItem from "./CartItem";
+import { useTheme } from "@emotion/react";
+import { useCart } from "../../hooks/useCart";
 
-const StyledImage = styled("img")(({ theme }) => ({
-  borderRadius: theme.spacing(1),
-  width: "90%",
-  height: "130px",
-}));
-
-const Cart = () => {
+const DrawerContent = () => {
   const {
     cart,
-    addToCart,
-    lessToCart,
     clearCart,
-    open,
     toggleDrawer,
     save,
     totalAmount,
+    addToCart,
+    lessToCart,
   } = useCart();
   const theme = useTheme();
-  /* const totalAmount = cart.reduce(
-    (acc, product) => acc + product.quantity * product.price,
-    0
-  ); */
 
-  function CartItem({ name, price, images, quantity, addToCart, lessToCart }) {
-    const imageUrl = images.length > 0 ? images[0].image_url : "";
-    return (
-      <>
-        <Box
-          sx={{
-            width: "100%",
-            height: "auto",
-            pt: 2,
-          }}
-        >
-          <Container maxWidth="lg">
-            <Grid container alignItems="center">
-              <Grid item xs={6} sm={5} md={4} lg={4}>
-                <StyledImage src={imageUrl} alt={name} />
-              </Grid>
-              <Grid item xs={6} sm={7} md={8} lg={8}>
-                <Typography
-                  gutterBottom
-                  variant="subtitle2"
-                  fontWeight={700}
-                  align="left"
-                >
-                  {name}
-                </Typography>
-
-                <Typography
-                  gutterBottom
-                  variant="body2"
-                  fontWeight={400}
-                  align="left"
-                >
-                  $ {price}
-                </Typography>
-                <Stack direction="row" alignItems="center" spacing={1}>
-                  <AddCircleIcon onClick={addToCart} />
-                  <Typography variant="body2" component="small">
-                    {quantity}
-                  </Typography>
-                  <RemoveCircleIcon onClick={lessToCart} />
-                </Stack>
-              </Grid>
-            </Grid>
-          </Container>
-        </Box>
-      </>
-    );
-  }
-
-  const DrawerList = (
+  return (
     <Box
       sx={{
         width: 400,
@@ -108,7 +29,7 @@ const Cart = () => {
           width: 325,
         },
         [theme.breakpoints.down("sm")]: {
-          width: 250,
+          width: 275,
         },
       }}
       role="presentation"
@@ -119,7 +40,7 @@ const Cart = () => {
             sx={{
               display: "flex",
               justifyContent: "flex-end",
-              padding: "0.5rem",
+              padding: theme.spacing(1),
             }}
           >
             <CloseIcon onClick={toggleDrawer(false)} />
@@ -161,7 +82,7 @@ const Cart = () => {
             direction={{ xs: "column", sm: "row" }}
             alignItems="center"
             spacing={1}
-            sx={{ padding: "1rem" }}
+            sx={{ padding: theme.spacing(2), paddingBottom: 0 }}
           >
             <Button
               variant="outlined"
@@ -200,7 +121,11 @@ const Cart = () => {
               />
             ))}
           </List>
-          <Stack direction="row" alignItems="center" sx={{ padding: "1rem" }}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            sx={{ padding: theme.spacing(2) }}
+          >
             <Button
               variant="contained"
               color="primary"
@@ -216,21 +141,6 @@ const Cart = () => {
       )}
     </Box>
   );
-
-  return (
-    <div>
-      <IconButton
-        size="large"
-        onClick={toggleDrawer(true)}
-        color={theme.palette.text.primary}
-      >
-        <LocalGroceryStoreIcon />
-      </IconButton>
-      <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
-        {DrawerList}
-      </Drawer>
-    </div>
-  );
 };
 
-export default Cart;
+export default DrawerContent;
