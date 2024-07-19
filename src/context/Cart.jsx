@@ -21,23 +21,16 @@ export function CartProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
-    console.log(
-      "Carrito obtenido del local storage:",
-      JSON.parse(localStorage.getItem("cart"))
-    );
-    console.log("ID obtenido del local storage:", localStorage.getItem("uuid"));
   }, [cart]);
 
   const save = async () => {
     try {
       const cart = localStorage.getItem("cart");
       if (cart) {
-        const parsedCart = JSON.parse(cart); // Convierte el string a un objeto JSON
+        const parsedCart = JSON.parse(cart);
         const buyerUuid = localStorage.getItem("uuid");
         const response = await saveCart(parsedCart, buyerUuid);
-        console.log(response);
         if (response.status === 200) {
-          // Verifica si la respuesta es exitosa
           window.location.href = "/checkout";
         } else {
           console.error("Failed to save cart:", response.status);
@@ -101,6 +94,10 @@ export function CartProvider({ children }) {
     0
   );
 
+  const getUniqueProductCount = () => {
+    return cart.length;
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -112,6 +109,7 @@ export function CartProvider({ children }) {
         open,
         toggleDrawer,
         save,
+        getUniqueProductCount,
       }}
     >
       {" "}

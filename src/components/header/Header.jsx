@@ -1,21 +1,18 @@
-// Header.js
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import Cart from "./Cart";
-import { Divider, Drawer } from "@mui/material";
-import Logo from "./Logo";
+import Cart from "../cart/Cart";
+import { Drawer } from "@mui/material";
+import Logo from "../Logo";
 import { useTheme } from "@emotion/react";
 import { NavLink, useLocation } from "react-router-dom";
-import Contact from "./Contact";
-import CloseIcon from "@mui/icons-material/Close";
+import Contact from "../Contact";
+import DrawerList from "./DrawerList";
 
 const pages = [
   { name: "Inicio", path: "/" },
@@ -24,32 +21,6 @@ const pages = [
   { name: "Sobre mí", path: "/about" },
   { name: "Contacto", path: "#", action: "contact" },
 ];
-
-const DrawerList = ({ handleContactOpen }) => (
-  <Box sx={{ width: 250 }} role="presentation">
-    <Box
-      sx={{ display: "flex", justifyContent: "flex-end", padding: "0.5rem" }}
-    >
-      <CloseIcon />
-    </Box>
-    <Box sx={{ textAlign: "center", margin: "0 1.5rem 1.5rem" }}>
-      <NavLink to="/" style={{ textDecoration: "none" }}>
-        <Logo />
-      </NavLink>
-    </Box>
-    <Divider />
-    {pages.map((page) => (
-      <MenuItem
-        key={page.name}
-        component={page.action ? "div" : NavLink}
-        to={page.path}
-        onClick={page.action === "contact" ? handleContactOpen : undefined}
-      >
-        <Typography textAlign="center">{page.name}</Typography>
-      </MenuItem>
-    ))}
-  </Box>
-);
 
 function Header() {
   const [open, setOpen] = React.useState(false);
@@ -79,7 +50,10 @@ function Header() {
           <Toolbar disableGutters>
             {/* logo desktop */}
             <Logo
-              sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, mr: 1 }}
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex" },
+              }}
             />
             {/* menu mobile */}
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -96,12 +70,18 @@ function Header() {
                 onClose={toggleDrawer(false)}
                 onClick={toggleDrawer(false)}
               >
-                <DrawerList handleContactOpen={handleContactOpen} />
+                <DrawerList
+                  pages={pages}
+                  handleContactOpen={handleContactOpen}
+                />
               </Drawer>
             </Box>
             {/* logo mobile */}
             <Logo
-              sx={{ flexGrow: 1, display: { xs: "flex", md: "none" }, mr: 1 }}
+              sx={{
+                flexGrow: 1,
+                display: { xs: "flex", md: "none" },
+              }}
             />
             {/* paginas desktop */}
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
@@ -114,7 +94,7 @@ function Header() {
                     page.action === "contact" ? handleContactOpen : undefined
                   }
                   sx={{
-                    my: 2,
+                    my: theme.spacing(2),
                     color:
                       location.pathname === page.path
                         ? theme.palette.primary.main
