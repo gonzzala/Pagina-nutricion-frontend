@@ -93,6 +93,7 @@ const About = () => {
           backgroundColor: theme.palette.primary[50],
           height: "100px",
           mt: theme.spacing(2),
+          mb: theme.spacing(5),
           [theme.breakpoints.down("sm")]: {
             height: "60px",
           },

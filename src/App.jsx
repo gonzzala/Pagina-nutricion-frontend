@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { CartProvider } from "./context/Cart";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
@@ -7,11 +9,16 @@ import AboutPage from "./pages/AboutPage";
 import Contact from "./components/Contact";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
+  React.useEffect(() => {
+    AOS.init(); // Inicializa AOS
+  }, []);
   return (
     <CartProvider>
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route

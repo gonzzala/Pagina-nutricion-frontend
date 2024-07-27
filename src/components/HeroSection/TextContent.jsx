@@ -1,6 +1,7 @@
 import { Box, Typography, Button } from "@mui/material";
 import { styled } from "@mui/system";
 import { NavLink } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 const TextContentWrapper = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
@@ -38,18 +39,20 @@ const TextContent = ({ theme }) => (
       Estamos aquí para ayudarte a lograrlo de manera efectiva y sencilla.
     </Typography>
     <ButtonsWrapper>
-      <Button
-        variant="contained"
-        color="primary"
-        sx={{
-          width: 165,
-          [theme.breakpoints.down("md")]: {
-            width: "100%",
-          },
-        }}
-      >
-        Ver beneficios
-      </Button>
+      <ScrollLink to="benefits" smooth={true} duration={1000}>
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{
+            width: 165,
+            [theme.breakpoints.down("md")]: {
+              width: "100%",
+            },
+          }}
+        >
+          Ver beneficios
+        </Button>
+      </ScrollLink>
       <NavLink to="/nutritional-plans">
         <Button
           variant="outlined"

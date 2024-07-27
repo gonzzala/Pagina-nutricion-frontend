@@ -13,6 +13,9 @@ const CoverContainer = styled(Box)(({ theme }) => ({
 const CoverImage = styled("img")(({ theme }) => ({
   width: "100%",
   height: "auto",
+  [theme.breakpoints.down("sm")]: {
+    height: `calc(100vh - 56px)`,
+  },
 }));
 
 const AboutCover = () => {
