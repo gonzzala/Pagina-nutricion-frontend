@@ -41,6 +41,9 @@ const Cards = ({ title, description, icon, position }) => {
 
   return (
     <Box
+      data-aos="zoom-in"
+      data-aos-duration="1000"
+      data-aos-delay="200"
       sx={{
         display: "flex",
         flexDirection: "column",
