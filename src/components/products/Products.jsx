@@ -8,8 +8,9 @@ import {
   CardMedia,
   IconButton,
   Skeleton,
+  Box,
 } from "@mui/material";
-import { useProducts } from "../hooks/useProduct";
+import { useProducts } from "../../hooks/useProduct";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@emotion/react";
@@ -65,7 +66,36 @@ const Products = ({ category }) => {
       </Grid> */}
 
       {filteredProducts.length > 0 ? (
-        <Grid container columnSpacing={1} justifyContent="left" /* lg={10} */>
+        <Grid
+          container
+          id="cards"
+          columnSpacing={1}
+          justifyContent="left"
+          padding={3}
+          mb={5}
+        >
+          {/* <Grid xs={12}>
+            <Box sx={{ px: 10 }}>
+              <Typography
+                align="left"
+                sx={{ marginBottom: 2, width: "70%", px: 10 }}
+                variant="h3"
+              >
+                Planes Nutricionales Personalizados para Todos
+              </Typography>
+              <Typography
+                align="left"
+                sx={{ marginBottom: 2, width: "70%", px: 10 }}
+                variant="subtitle1"
+              >
+                Cada persona es única, por eso adaptamos nuestros planes a tus
+                necesidades y objetivos. Al comprar, responderás algunas
+                preguntas que nos ayudarán a crear una guía exclusiva para ti.
+                No importa quién seas ni tus metas, estamos aquí para ayudarte a
+                lograr una vida más saludable.
+              </Typography>
+            </Box>
+          </Grid> */}
           {filteredProducts.map((product) => (
             <Grid
               item

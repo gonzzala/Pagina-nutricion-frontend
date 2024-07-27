@@ -56,6 +56,7 @@ const ProductDetail = () => {
       <Box
         sx={{
           padding: theme.spacing(8),
+          mb: theme.spacing(5),
           [theme.breakpoints.down("md")]: {
             padding: theme.spacing(5),
           },

@@ -59,7 +59,8 @@ const PaymentMethod = ({ paymentMethod, handlePaymentMethodChange }) => {
                 <Box display="flex" alignItems="center">
                   <AccountBalanceIcon style={{ fontSize: "30px" }} />
                   <Typography sx={{ marginLeft: 2 }}>
-                    Transferencia bancaria
+                    Transferencia bancaria <br />
+                    (muy pronto)
                   </Typography>
                 </Box>
               }
