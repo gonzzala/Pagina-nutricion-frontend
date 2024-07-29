@@ -130,7 +130,12 @@ const ProductDetail = () => {
                 >
                   Agregar al carrito
                 </Button>
-                <Typography variant="body1">{product.description}</Typography>
+                <Typography
+                  variant="body1"
+                  sx={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}
+                >
+                  {product.description}
+                </Typography>
               </>
             ) : (
               <>
