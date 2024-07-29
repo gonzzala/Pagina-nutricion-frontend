@@ -59,7 +59,7 @@ const DrawerContent = () => {
                 }}
                 onClick={toggleDrawer(false)}
               >
-                Planes nustricionales
+                Planes nutricionales
               </Button>
             </NavLink>
             <NavLink to="/muscle-plans">
