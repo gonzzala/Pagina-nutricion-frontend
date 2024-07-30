@@ -82,7 +82,7 @@ const ProductDetail = () => {
                   />
                 )
               ) : (
-                <Skeleton variant="rectangular" width={400} height={400} />
+                <Skeleton variant="rectangular" width={334} height={400} />
               )}
             </SliderBox>
           </Grid>

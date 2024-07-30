@@ -13,7 +13,9 @@ import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   React.useEffect(() => {
-    AOS.init(); // Inicializa AOS
+    AOS.init({
+      once: true,
+    });
   }, []);
   return (
     <CartProvider>

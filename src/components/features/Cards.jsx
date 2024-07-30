@@ -41,8 +41,8 @@ const Cards = ({ title, description, icon, position }) => {
 
   return (
     <Box
-      data-aos="zoom-in"
-      data-aos-duration="1000"
+      data-aos="flip-left"
+      data-aos-duration="700"
       data-aos-delay="200"
       sx={{
         display: "flex",
@@ -55,12 +55,6 @@ const Cards = ({ title, description, icon, position }) => {
         ...getBorderRadius(),
         border: `3px solid ${theme.palette.primary[100]}`,
         height: "325px",
-        [theme.breakpoints.up("sm")]: {
-          transition: "transform 0.3s",
-          "&:hover": {
-            transform: "scale(1.05)",
-          },
-        },
         "@media (max-width: 805px)": {
           height: "300px",
         },
