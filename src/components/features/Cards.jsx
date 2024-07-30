@@ -43,7 +43,7 @@ const Cards = ({ title, description, icon, position }) => {
     <Box
       data-aos="flip-left"
       data-aos-duration="700"
-      data-aos-delay="200"
+      data-aos-delay="500"
       sx={{
         display: "flex",
         flexDirection: "column",
