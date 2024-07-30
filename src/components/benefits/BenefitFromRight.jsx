@@ -12,7 +12,7 @@ const BenefitFromRight = ({ benefit }) => {
       <Grid item xs={10} sm={10} lg={8}>
         <Box
           data-aos="fade-left"
-          data-aos-duration="1000"
+          data-aos-duration="700"
           data-aos-delay="200"
           sx={{
             display: "flex",
