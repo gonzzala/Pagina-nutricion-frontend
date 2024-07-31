@@ -5,6 +5,9 @@ const StyledImage = styled("img")(({ theme }) => ({
   borderRadius: theme.spacing(2),
   width: "100%",
   height: "auto",
+  [theme.breakpoints.up("lg")]: {
+    maxWidth: "500px",
+  },
 }));
 
 const About = () => {
@@ -39,9 +42,13 @@ const About = () => {
       <Box
         sx={{
           padding: theme.spacing(4),
+          "@media (min-width: 1300px)": {
+            display: "flex",
+            justifyContent: "center",
+          },
         }}
       >
-        <Grid container spacing={4} alignItems="center">
+        <Grid container spacing={4} alignItems="center" maxWidth={"1300px"}>
           <Grid item xs={12} md={5}>
             <StyledImage src="backtraining.jpg" alt="About me" />
           </Grid>
