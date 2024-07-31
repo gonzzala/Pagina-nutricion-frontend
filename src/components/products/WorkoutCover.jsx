@@ -35,9 +35,10 @@ const WorkoutCover = () => {
             "@media (min-width: 600px) and (max-width: 622px)": {
               paddingTop: theme.spacing(3),
             },
-            "@media (min-height: 800px) and (max-height: 1000px)": {
-              paddingTop: theme.spacing(15),
-            },
+            "@media (max-width: 599px) and (min-height: 800px) and (max-height: 1000px)":
+              {
+                paddingTop: theme.spacing(15),
+              },
           }}
         >
           <Box>
