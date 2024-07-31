@@ -59,7 +59,11 @@ Para integrar las funcionalidades de MercadoPago:
    npm install @mercadopago/sdk-react
    ```
 
-2. Configura las credenciales de MercadoPago en tu frontend.
+2. Deberás crear un archivo `.env` y configura las credenciales de MercadoPago:
+
+   ```sh
+   VITE_MERCADO_PAGO_KEY=tu_secret_key
+   ```
 
 3. Implementa el procesamiento de pagos en tus vistas.
 

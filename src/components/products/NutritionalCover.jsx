@@ -31,17 +31,22 @@ const NutritionalCover = () => {
           [theme.breakpoints.down("md")]: {
             padding: theme.spacing(5),
           },
-          "@media (min-height: 601px) and (max-height: 800px)": {
+          "@media (min-width: 1500px)": {
             alignItems: "center",
-            textAlign: "center",
-            padding: theme.spacing(3),
           },
-          "@media (min-height: 801px) and (max-height: 1000px)": {
-            alignItems: "center",
-            textAlign: "center",
-            padding: theme.spacing(5),
-            paddingTop: theme.spacing(13),
-          },
+          "@media (max-width: 599px) and (min-height: 601px) and (max-height: 800px)":
+            {
+              alignItems: "center",
+              textAlign: "center",
+              padding: theme.spacing(3),
+            },
+          "@media (max-width: 599px) and (min-height: 801px) and (max-height: 1000px)":
+            {
+              alignItems: "center",
+              textAlign: "center",
+              padding: theme.spacing(5),
+              paddingTop: theme.spacing(13),
+            },
         }}
       >
         <motion.div
@@ -109,9 +114,10 @@ const NutritionalCover = () => {
             [theme.breakpoints.up("md")]: {
               maxWidth: "350px",
             },
-            "@media (min-height: 801px) and (max-height: 1000px)": {
-              minWidth: "400px",
-            },
+            "@media (max-width: 599px) and (min-height: 801px) and (max-height: 1000px)":
+              {
+                minWidth: "400px",
+              },
           }}
         />
       </Box>
@@ -133,13 +139,15 @@ const NutritionalCover = () => {
           [theme.breakpoints.down("md")]: {
             padding: theme.spacing(5),
           },
-          "@media (min-height: 601px) and (max-height: 800px)": {
-            padding: theme.spacing(3),
-          },
-          "@media (min-height: 801px) and (max-height: 1000px)": {
-            padding: theme.spacing(5),
-            paddingBottom: theme.spacing(13),
-          },
+          "@media (max-width: 599px) and (min-height: 601px) and (max-height: 800px)":
+            {
+              padding: theme.spacing(3),
+            },
+          "@media (max-width: 599px) and (min-height: 801px) and (max-height: 1000px)":
+            {
+              padding: theme.spacing(5),
+              paddingBottom: theme.spacing(13),
+            },
         }}
       >
         <motion.div
