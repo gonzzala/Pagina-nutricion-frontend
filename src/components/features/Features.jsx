@@ -83,6 +83,7 @@ const Features = () => {
         spacing={3}
         justifyContent="center" // Centra horizontalmente
         alignItems="center" // Centra verticalmente
+        maxWidth={"1000px"}
         sx={{
           padding: theme.spacing(4),
           width: "60%",

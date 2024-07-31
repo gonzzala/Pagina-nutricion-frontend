@@ -15,7 +15,7 @@ export const useCheckoutForm = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  initMercadoPago("APP_USR-174a34d0-0e28-4167-ace0-7727157849f3", {
+  initMercadoPago(import.meta.env.VITE_MERCADO_PAGO_KEY, {
     locale: "es-AR",
   });
 

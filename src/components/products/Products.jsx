@@ -25,6 +25,8 @@ const Products = ({ category }) => {
     navigate(`/products/${product_id}`);
   };
 
+  const shouldCenter = filteredProducts.length > 1;
+
   return (
     <>
       {/* <Grid container>
@@ -64,17 +66,27 @@ const Products = ({ category }) => {
           </Box>
         </Grid>
       </Grid> */}
-
-      {filteredProducts.length > 0 ? (
-        <Grid
-          container
-          id="cards"
-          columnSpacing={1}
-          justifyContent="left"
-          padding={3}
-          mb={5}
-        >
-          {/* <Grid xs={12}>
+      <Box
+        sx={{
+          ...(shouldCenter && {
+            "@media (min-width: 1500px)": {
+              display: "flex",
+              justifyContent: "center",
+            },
+          }),
+        }}
+      >
+        {filteredProducts.length > 0 ? (
+          <Grid
+            container
+            id="cards"
+            columnSpacing={1}
+            justifyContent="left"
+            padding={3}
+            mb={5}
+            maxWidth={"1500px"}
+          >
+            {/* <Grid xs={12}>
             <Box sx={{ px: 10 }}>
               <Typography
                 align="left"
@@ -96,106 +108,121 @@ const Products = ({ category }) => {
               </Typography>
             </Box>
           </Grid> */}
-          {filteredProducts.map((product) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
-              display="flex"
-              justifyContent="center"
-              key={product.product_id}
-            >
-              <Card
-                sx={{
-                  maxWidth: 300,
-                  marginTop: theme.spacing(5),
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  transition: "transform 0.3s",
-                  "&:hover": {
-                    transform: "scale(1.05)",
-                  },
-                }}
-                onClick={() => handleProductClick(product.product_id)}
+            {filteredProducts.map((product) => (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                lg={3}
+                display="flex"
+                justifyContent="center"
+                key={product.product_id}
               >
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="400"
-                    image={product.images[0].image_url}
-                    alt={product.name}
-                  />
-                  <CardContent
+                <Card
+                  sx={{
+                    maxWidth: 300,
+                    marginTop: theme.spacing(5),
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    transition: "transform 0.3s",
+                    "&:hover": {
+                      transform: "scale(1.05)",
+                    },
+                  }}
+                  onClick={() => handleProductClick(product.product_id)}
+                >
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="400"
+                      image={product.images[0].image_url}
+                      alt={product.name}
+                    />
+                    <CardContent
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        align="center"
+                      >
+                        {product.name}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        $ {product.price}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <IconButton size="large" color="inherit">
+                    <AddShoppingCartIcon />
+                  </IconButton>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        ) : (
+          <Box
+            sx={{
+              "@media (min-width: 1500px)": {
+                display: "flex",
+                justifyContent: "center",
+              },
+            }}
+          >
+            <Grid
+              container
+              columnSpacing={1}
+              justifyContent="left"
+              maxWidth={"1500px"}
+            >
+              {[1, 2, 3, 4].map((_, index) => (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  lg={3}
+                  display="flex"
+                  justifyContent="center"
+                  key={index}
+                >
+                  <Card
                     sx={{
+                      maxWidth: 300,
+                      marginTop: theme.spacing(5),
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
                     }}
                   >
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="div"
-                      align="center"
+                    <Skeleton variant="rectangular" width={300} height={400} />
+                    <CardContent
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                      }}
                     >
-                      {product.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      $ {product.price}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-                <IconButton size="large" color="inherit">
-                  <AddShoppingCartIcon />
-                </IconButton>
-              </Card>
+                      <Skeleton width="80%" />
+                      <Skeleton width="60%" />
+                    </CardContent>
+                    <IconButton size="large" color="inherit">
+                      <AddShoppingCartIcon />
+                    </IconButton>
+                  </Card>
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
-      ) : (
-        <Grid container columnSpacing={1} justifyContent="left">
-          {[1, 2, 3, 4].map((_, index) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
-              display="flex"
-              justifyContent="center"
-              key={index}
-            >
-              <Card
-                sx={{
-                  maxWidth: 300,
-                  marginTop: theme.spacing(5),
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <Skeleton variant="rectangular" width={300} height={400} />
-                <CardContent
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <Skeleton width="80%" />
-                  <Skeleton width="60%" />
-                </CardContent>
-                <IconButton size="large" color="inherit">
-                  <AddShoppingCartIcon />
-                </IconButton>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      )}
+          </Box>
+        )}
+      </Box>
     </>
   );
 };
