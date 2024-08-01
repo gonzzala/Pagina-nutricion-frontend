@@ -10,27 +10,27 @@ const cardData = [
   {
     title: "Personalización Total",
     description: "Planes adaptados a tus necesidades y objetivos únicos.",
-    icon: "/icon1.png",
+    icon: "/icon1.webp",
     position: "top-left",
   },
   {
     title: "Variedad Deliciosa",
     description: "Comidas equilibradas, fáciles de preparar y llenas de sabor.",
-    icon: "/icon2.png",
+    icon: "/icon2.webp",
     position: "top-right",
   },
   {
     title: "Equilibrio Saludable",
     description:
       "Disfruta de todos los grupos de alimentos sin restricciones extremas.",
-    icon: "/icon3.png",
+    icon: "/icon3.webp",
     position: "bottom-left",
   },
   {
     title: "Resultados Comprobados",
     description:
       "Logra transformaciones reales y medibles con nuestros planes.",
-    icon: "/icon4.png",
+    icon: "/icon4.webp",
     position: "bottom-right",
   },
 ];
