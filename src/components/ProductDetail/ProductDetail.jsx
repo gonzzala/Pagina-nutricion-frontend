@@ -16,6 +16,7 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import ImageSlider from "./Carousel";
 import InfoIcon from "@mui/icons-material/Info";
 import useProductDetail from "../../hooks/useProductDetail";
+import { Helmet } from "react-helmet";
 
 const imageStyles = {
   borderRadius: "10px",
@@ -53,6 +54,20 @@ const ProductDetail = () => {
 
   return (
     <>
+      {product && (
+        <Helmet>
+          <title>{product.name}</title>
+          <meta name="description" content={product.description} />
+          <meta
+            name="keywords"
+            content={`Angelina, nutrición, ejercicio, planes, Sobre mí, planes nutricionales, palnes musculación, ${product.name}`}
+          />
+          <link
+            rel="canonical"
+            href={`https://angelina-nutritionandworkout.netlify.app/produts/${product.product_id}`}
+          />
+        </Helmet>
+      )}
       <Box
         sx={{
           padding: theme.spacing(8),
