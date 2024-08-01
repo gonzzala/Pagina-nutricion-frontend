@@ -16,9 +16,9 @@ const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    { src: "backtraining.png", alt: "Fitness" },
-    { src: "running.png", alt: "Fitness" },
-    { src: "eating.png", alt: "Fitness" },
+    { src: "backtraining.webp", alt: "Fitness" },
+    { src: "running.webp", alt: "Fitness" },
+    { src: "eating.webp", alt: "Fitness" },
   ];
 
   useEffect(() => {

@@ -9,25 +9,25 @@ const benefits = [
     title: "Transformación Física y Estética",
     description:
       "Comer bien y hacer ejercicio te ayuda a tonificar músculos y reducir grasa. Con nuestros planes, evitarás la mala alimentación y la inactividad que causan el aumento de peso y pérdida de tono muscular.",
-    img: "/transformation.png",
+    img: "/transformation.webp",
   },
   {
     title: "Energía Inagotable y Productividad",
     description:
       "Una dieta saludable te proporciona la energía y vitalidad necesarias para enfrentar tu día a día con entusiasmo y eficiencia.",
-    img: "/energy.png",
+    img: "/energy.webp",
   },
   {
     title: "Longevidad y Calidad de Vida",
     description:
       "Vivir más y mejor es posible gracias a la nutrición adecuada y al ejercicio regular, que contribuyen a mantener un cuerpo y mente sanos.",
-    img: "/longevity.png",
+    img: "/longevity.webp",
   },
   {
     title: "Salud Mental y Felicidad",
     description:
       "Una buena alimentación impacta positivamente en tu estado de ánimo y bienestar emocional, ayudándote a enfrentar el estrés y la ansiedad.",
-    img: "/health.png",
+    img: "/health.webp",
   },
 ];
 
@@ -45,7 +45,7 @@ const Benefits = () => {
       >
         <Box
           component="img"
-          src="/wave.png"
+          src="/wave.webp"
           alt="wave"
           sx={{
             width: "100%",

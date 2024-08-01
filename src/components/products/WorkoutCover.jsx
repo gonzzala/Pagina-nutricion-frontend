@@ -107,7 +107,7 @@ const WorkoutCover = () => {
           </Box>
           <Box
             component="img"
-            src="/WorkoutCover.png"
+            src="/WorkoutCover.webp"
             alt="workout"
             sx={{
               position: "absolute",

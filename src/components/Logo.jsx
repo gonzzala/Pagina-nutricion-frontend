@@ -20,7 +20,7 @@ const Logo = ({ sx }) => {
   return (
     <LogoContainer sx={sx}>
       <img
-        src="/Logo.png"
+        src="/Logo.webp"
         alt="Logo"
         style={{ height: "40px", cursor: "pointer" }}
         onClick={handleLogoClick}

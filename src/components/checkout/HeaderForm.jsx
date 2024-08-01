@@ -33,7 +33,7 @@ const HeaderImage = styled("img")(({ theme }) => ({
 const HeaderForm = ({ sx }) => {
   return (
     <HeaderContainer sx={sx}>
-      <HeaderImage src="/HeaderForm.png" alt="" />
+      <HeaderImage src="/HeaderForm.webp" alt="" />
     </HeaderContainer>
   );
 };
