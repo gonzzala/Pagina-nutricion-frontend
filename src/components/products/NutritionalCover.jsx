@@ -98,7 +98,7 @@ const NutritionalCover = () => {
         </motion.div>
         <Box
           component="img"
-          src="/NutritionalCover.png"
+          src="/NutritionalCover.webp"
           alt="Healthy Food"
           sx={{
             position: "absolute",

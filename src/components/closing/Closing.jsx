@@ -44,7 +44,7 @@ const Closing = () => {
           >
             <Box
               component="img"
-              src="/palti.png"
+              src="/palti.webp"
               alt="palti"
               sx={{
                 width: "100%",

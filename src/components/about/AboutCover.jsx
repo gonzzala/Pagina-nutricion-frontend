@@ -21,13 +21,13 @@ const CoverImage = styled("img")(({ theme }) => ({
 const AboutCover = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const [coverImage, setCoverImage] = useState("/AboutCover.png");
+  const [coverImage, setCoverImage] = useState("/AboutCover.webp");
 
   useEffect(() => {
     if (isSmallScreen) {
-      setCoverImage("/AboutCoverMobile.png");
+      setCoverImage("/AboutCoverMobile.webp");
     } else {
-      setCoverImage("/AboutCover.png");
+      setCoverImage("/AboutCover.webp");
     }
   }, [isSmallScreen]);
 

@@ -50,7 +50,7 @@ const About = () => {
       >
         <Grid container spacing={4} alignItems="center" maxWidth={"1300px"}>
           <Grid item xs={12} md={5}>
-            <StyledImage src="backtraining.jpg" alt="About me" />
+            <StyledImage src="backtrainingAbout.webp" alt="About me" />
           </Grid>
           <Grid item xs={12} md={7}>
             <Typography variant="body1" paragraph>

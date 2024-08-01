@@ -2,7 +2,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const api = axios.create({
-  baseURL: "https://pagina-nutricion-backend-production.up.railway.app/api",
+  baseURL: "http://localhost:8000/api",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
