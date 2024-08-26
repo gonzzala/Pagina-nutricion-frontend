@@ -10,7 +10,7 @@ const Closing = () => {
     <Box
       sx={{
         background: theme.palette.surface[150],
-        paddingTop: theme.spacing(5),
+        paddingTop: { xs: theme.spacing(8), sm: theme.spacing(14) },
       }}
     >
       <Grid container xs={12}>
