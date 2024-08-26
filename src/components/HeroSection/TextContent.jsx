@@ -1,8 +1,9 @@
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { styled } from "@mui/system";
 import { NavLink } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { motion } from "framer-motion";
+import { useTheme } from "@emotion/react";
 
 const TextContentWrapper = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
@@ -33,75 +34,84 @@ const itemVariants = {
   },
 };
 
-const TextContent = ({ theme }) => (
-  <TextContentWrapper
-    component={motion.div}
-    initial="hidden"
-    animate="visible"
-    variants={containerVariants}
-  >
-    <Typography
-      variant="h2"
-      sx={{
-        fontWeight: 700,
-        color: theme.palette.text.primary,
-        marginBottom: theme.spacing(2),
-      }}
+const TextContent = () => {
+  const theme = useTheme();
+  const isLarge = useMediaQuery("(min-width:1250px)");
+
+  return (
+    <TextContentWrapper
       component={motion.div}
-      variants={itemVariants}
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
     >
-      Cambia tus hábitos,
-      <br />
       <Typography
         variant="h2"
-        /* component="span" */
-        color="primary"
-        sx={{ fontWeight: 700 }}
-        component={motion.span}
+        sx={{
+          fontWeight: 700,
+          color: theme.palette.text.primary,
+          marginBottom: theme.spacing(2),
+        }}
+        component={motion.div}
         variants={itemVariants}
       >
-        Transforma tu vida
+        Cambia tus hábitos,
+        <br />
+        <Typography
+          variant="h2"
+          color="primary"
+          sx={{ fontWeight: 700 }}
+          component={motion.span}
+          variants={itemVariants}
+        >
+          Transforma tu vida
+        </Typography>
       </Typography>
-    </Typography>
-    <Typography variant="body1" component={motion.div} variants={itemVariants}>
-      Descubre cómo dos simples cambios pueden revolucionar tu bienestar.
-      Estamos aquí para ayudarte a lograrlo de manera efectiva y sencilla.
-    </Typography>
-    <ButtonsWrapper component={motion.div} variants={itemVariants}>
-      <ScrollLink to="benefits" smooth={true} duration={1000}>
-        <Button
-          variant="contained"
-          color="primary"
-          sx={{
-            width: 165,
-            [theme.breakpoints.down("md")]: {
-              width: "100%",
-            },
-          }}
-        >
-          Ver beneficios
-        </Button>
-      </ScrollLink>
-      <NavLink to="/nutritional-plans">
-        <Button
-          variant="outlined"
-          color="primary"
-          sx={{
-            ml: theme.spacing(2),
-            backgroundColor: "white",
-            width: 165,
-            [theme.breakpoints.down("md")]: {
-              width: "100%",
-              ml: 0,
-              mt: theme.spacing(1.5),
-            },
-          }}
-        >
-          Ver planes
-        </Button>
-      </NavLink>
-    </ButtonsWrapper>
-  </TextContentWrapper>
-);
+      <Typography
+        variant="body1"
+        component={motion.div}
+        variants={itemVariants}
+      >
+        Descubre cómo dos simples cambios pueden revolucionar tu bienestar.{" "}
+        {isLarge ? <br /> : " "}
+        Estamos aquí para ayudarte a lograrlo de manera efectiva y sencilla.
+      </Typography>
+      <ButtonsWrapper component={motion.div} variants={itemVariants}>
+        <ScrollLink to="benefits" smooth={true} duration={1000}>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{
+              width: 165,
+              [theme.breakpoints.down("md")]: {
+                width: "100%",
+              },
+            }}
+          >
+            Ver beneficios
+          </Button>
+        </ScrollLink>
+        <NavLink to="/nutritional-plans">
+          <Button
+            variant="outlined"
+            color="primary"
+            sx={{
+              ml: theme.spacing(2),
+              backgroundColor: "white",
+              width: 165,
+              [theme.breakpoints.down("md")]: {
+                width: "100%",
+                ml: 0,
+                mt: theme.spacing(1.5),
+              },
+            }}
+          >
+            Ver planes
+          </Button>
+        </NavLink>
+      </ButtonsWrapper>
+    </TextContentWrapper>
+  );
+};
 
 export default TextContent;
